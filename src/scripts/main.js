@@ -26,6 +26,18 @@ document.getElementById('site-footer').innerHTML = `
   </div>
 `;
 
+// Apparition des photos au scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.photo-item').forEach(el => observer.observe(el));
+
 const FORMSPREE_ID = 'mredlagk'; // Remplace par ton ID Formspree
 
 async function handleSubmit(e) {
