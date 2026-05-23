@@ -26,10 +26,32 @@ document.getElementById('site-footer').innerHTML = `
   </div>
 `;
 
-function handleSubmit(e) {
+const FORMSPREE_ID = 'mredlagk'; // Remplace par ton ID Formspree
+
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Sent ✓';
-  btn.style.opacity = '0.5';
+  const form = e.target;
+  const btn = form.querySelector('button');
+
+  btn.textContent = 'Sending...';
   btn.disabled = true;
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    });
+
+    if (res.ok) {
+      btn.textContent = 'Sent ✓';
+      form.reset();
+    } else {
+      btn.textContent = 'Error — try again';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Error — try again';
+    btn.disabled = false;
+  }
 }
