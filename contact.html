@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Jeremy Tamom</title>
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="nav-logo">Jeremy Tamom</a>
+    <a href="contact.html" class="nav-contact active">Contact</a>
+  </header>
+
+  <div class="contact-page">
+    <div class="contact-wrap">
+      <h1>Get in touch</h1>
+
+      <div class="contact-info">
+        <a href="mailto:jeremytamom@gmail.com">jeremytamom@gmail.com</a>
+        <a href="https://www.instagram.com/j3eyyy/" target="_blank">@jeremytamom</a>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" name="name" placeholder="Nom" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© Jeremy Tamom, All Rights Reserved, 2026</p>
+    <div class="footer-links">
+      <a href="mailto:jeremytamom@gmail.com">EMAIL</a>
+      <a href="https://www.instagram.com/j3eyyy/" target="_blank">INSTAGRAM</a>
+    </div>
+  </footer>
+
+  <script src="src/scripts/main.js"></script>
+
+
+
+</body>
+</html>
