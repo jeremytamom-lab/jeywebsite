@@ -789,6 +789,11 @@ footer {
 
   .series {
     margin-bottom: 64px;
+    margin-top: 0 !important;
+  }
+
+  .series-row {
+    padding-top: 0 !important;
   }
 
   /* ── Carousel horizontal sur mobile ── */
