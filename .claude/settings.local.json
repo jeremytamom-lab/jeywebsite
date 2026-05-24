@@ -10,7 +10,9 @@
       "Bash(brew list *)",
       "Bash(ffmpeg -version)",
       "Bash(sips -g pixelWidth -g pixelHeight /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/blabla/cover.png /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/balnia/01.jpg /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/weyz/01.png)",
-      "Bash(sips -Z 1800 -s format jpeg -s formatOptions 82 /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/__TRACKED_VAR__.png --out /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/__TRACKED_VAR__.jpg)"
+      "Bash(sips -Z 1800 -s format jpeg -s formatOptions 82 /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/__TRACKED_VAR__.png --out /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/__TRACKED_VAR__.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/moi.jpg)",
+      "Bash(sips -Z 1800 -s formatOptions 82 /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/moi.jpg --out /Users/jey/Documents/GitHub/jeywebsite/src/assets/images/moi.jpg)"
     ]
   }
 }

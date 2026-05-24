@@ -32,14 +32,11 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  height: var(--header-h);
-  padding: 0 40px;
+  padding: 20px 40px 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #e8e8e8;
+  align-items: start;
+  background: transparent;
 }
 
 .nav-left   { justify-self: start; }
@@ -49,7 +46,7 @@ header {
 .nav-contact {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: 0;
   text-transform: none;
   text-decoration: none;
@@ -65,7 +62,7 @@ header {
 .nav-logo {
   font-family: 'Inter', sans-serif;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 200;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-decoration: none;
@@ -79,18 +76,18 @@ main {
 }
 
 .gallery {
-  padding: 80px 80px 120px;
+  padding: 140px 80px 200px;
 }
 
 .series {
-  margin-bottom: 140px;
+  margin-bottom: 280px;
 }
 
 .series-row {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .photo-item {
@@ -149,7 +146,7 @@ main {
 .editorial-page {
   flex: 1;
   margin-top: var(--header-h);
-  padding: 64px 58px 100px;
+  padding: 120px 58px 140px;
 }
 
 .editorial-heading {
@@ -164,8 +161,8 @@ main {
 
 .editorial-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 0 60px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 0 48px;
   align-items: start;
 }
 
@@ -174,27 +171,27 @@ main {
 }
 
 .editorial-section-title {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--black);
   margin-bottom: 24px;
 }
 
 .editorial-body {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.85;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
   color: var(--black);
   margin-bottom: 40px;
   max-width: 400px;
 }
 
 .editorial-location {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--gray);
 }
@@ -208,9 +205,15 @@ main {
 
 .editorial-list li {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--black);
-  line-height: 1.4;
+  line-height: 1.2;
+}
+
+.about-portrait {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .editorial-links {
