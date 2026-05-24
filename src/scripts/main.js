@@ -50,19 +50,36 @@ const hero = document.querySelector('.hero');
 const heroPhoto = document.querySelector('.hero-photo');
 if (hero && heroPhoto) {
   const isMobile = () => window.innerWidth <= 768;
-  const startH = () => isMobile() ? 65 : 85;
-  const endH   = () => isMobile() ? 30 : 40;
+  let startH = isMobile() ? 50 : 65;
+  let endH   = isMobile() ? 25 : 35;
+  let range  = hero.offsetHeight - window.innerHeight;
+  let lastV = -1, lastBg = -1, rafId = 0;
 
   function updateHero() {
-    const h = hero.offsetHeight - window.innerHeight;
-    const p = Math.min(Math.max(window.scrollY / h, 0), 1);
-    const v = startH() - (startH() - endH()) * p;
-    heroPhoto.style.setProperty('--hero-h', `${v}vh`);
+    rafId = 0;
+    const p = Math.min(Math.max(window.scrollY / range, 0), 1);
+    const v = Math.round((startH - (startH - endH) * p) * 10) / 10;
+    if (v !== lastV) {
+      heroPhoto.style.setProperty('--hero-h', `${v}vh`);
+      lastV = v;
+    }
     const bg = Math.round(17 + (255 - 17) * p);
-    hero.style.backgroundColor = `rgb(${bg}, ${bg}, ${bg})`;
+    if (bg !== lastBg) {
+      hero.style.backgroundColor = `rgb(${bg},${bg},${bg})`;
+      lastBg = bg;
+    }
   }
-  window.addEventListener('scroll', updateHero, { passive: true });
-  window.addEventListener('resize', updateHero);
+  function onScroll() {
+    if (!rafId) rafId = requestAnimationFrame(updateHero);
+  }
+  function onResize() {
+    startH = isMobile() ? 50 : 65;
+    endH   = isMobile() ? 25 : 35;
+    range  = hero.offsetHeight - window.innerHeight;
+    updateHero();
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
   updateHero();
 }
 
