@@ -59,6 +59,8 @@ header {
   padding: 0 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  animation: headerReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  transform-origin: top center;
   align-items: center;
   background: transparent;
   mix-blend-mode: difference;
@@ -94,11 +96,26 @@ header {
   color: var(--black);
 }
 
+/* ─── LOAD ANIMATIONS ───────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes headerReveal {
+  from { opacity: 0; transform: perspective(800px) rotateX(18deg) translateY(-8px); }
+  to   { opacity: 1; transform: perspective(800px) rotateX(0deg) translateY(0); }
+}
+
 /* ─── HERO (ouverture) ───────────────────────── */
 .hero {
-  height: 180vh;
+  height: 280vh;
   position: relative;
   background: #111;
+  transition: background-color 0.5s ease;
 }
 
 .hero-inner {
@@ -115,10 +132,11 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-photo img {
-  height: var(--hero-h, 85vh);
+  height: var(--hero-h, 65vh);
   width: auto;
   max-width: 90vw;
   display: block;
@@ -126,12 +144,18 @@ header {
   user-select: none;
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
-  transition: height 0.05s linear;
+  transition: none;
 }
 
 @media (max-width: 768px) {
   .hero {
-    height: 150vh;
+    height: 230vh;
+  }
+  .hero-photo img {
+    width: 90vw;
+    height: auto;
+    max-height: var(--hero-h, 50vh);
+    object-fit: contain;
   }
 }
 
@@ -172,6 +196,7 @@ main {
 }
 
 .photo-item img,
+.photo-item video,
 .about-portrait {
   width: 100%;
   height: auto;
