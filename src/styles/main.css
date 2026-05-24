@@ -803,4 +803,25 @@ footer {
     grid-template-columns: 1fr;
     gap: 0;
   }
+
+  footer {
+    padding: 20px 24px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    justify-self: start;
+  }
+
+  .footer-text,
+  .footer-link {
+    font-size: 14px;
+  }
+
+  .footer-links {
+    gap: 24px;
+  }
 }
