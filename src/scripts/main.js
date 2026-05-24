@@ -11,11 +11,9 @@ document.head.appendChild(lenisScript);
 const page = window.location.pathname.split('/').pop() || 'index.html';
 
 document.getElementById('site-header').innerHTML = `
-  <a href="./" class="nav-logo">JEREMYTAMOM</a>
-  <nav class="nav-links">
-    <a href="about.html" class="nav-link ${page === 'about.html' ? 'active' : ''}">ABOUT</a>
-    <a href="contact.html" class="nav-link ${page === 'contact.html' ? 'active' : ''}">CONTACT</a>
-  </nav>
+  <a href="index.html" class="nav-link nav-left ${page === 'index.html' || page === '' ? 'active' : ''}">WORKS</a>
+  <a href="about.html" class="nav-link nav-center ${page === 'about.html' ? 'active' : ''}">ABOUT</a>
+  <a href="contact.html" class="nav-link nav-right ${page === 'contact.html' ? 'active' : ''}">CONTACT</a>
 `;
 
 document.getElementById('site-footer').innerHTML = `

@@ -8,7 +8,7 @@
   --black: #0f0f0f;
   --white: #ffffff;
   --gray: #888;
-  --header-h: 72px;
+  --header-h: 88px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
@@ -33,14 +33,18 @@ header {
   right: 0;
   z-index: 100;
   height: var(--header-h);
-  padding: 0 58px;
-  display: flex;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #e8e8e8;
 }
+
+.nav-left   { justify-self: start; }
+.nav-center { justify-self: center; }
+.nav-right  { justify-self: end; }
 
 .nav-contact {
   font-family: 'Inter', sans-serif;
@@ -60,10 +64,10 @@ header {
 
 .nav-logo {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0;
-  text-transform: none;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--black);
 }
@@ -122,13 +126,15 @@ main {
 /* ─── NAV LINKS ───────────────────────────────── */
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 40px;
 }
 
 .nav-link {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--black);
   transition: color 0.2s;
