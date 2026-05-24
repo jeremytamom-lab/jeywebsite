@@ -602,6 +602,8 @@ footer p {
     flex: 0 0 78vw !important;
     margin-left: 0 !important;
     scroll-snap-align: start;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   /* Dernière photo snap vers le bord */
