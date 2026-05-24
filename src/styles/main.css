@@ -796,6 +796,15 @@ footer {
     padding-top: 0 !important;
   }
 
+  .video-item {
+    flex: 0 0 88vw !important;
+    scroll-snap-align: center;
+  }
+
+  .series:has(.video-item) .series-row {
+    justify-content: center !important;
+  }
+
   /* ── Carousel horizontal sur mobile ── */
   .series-row {
     flex-wrap: nowrap;
