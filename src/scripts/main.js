@@ -24,6 +24,14 @@ document.getElementById('site-footer').innerHTML = `
   </div>
 `;
 
+// Protection images : clic droit + drag bloqués
+document.addEventListener('contextmenu', e => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+document.addEventListener('dragstart', e => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+
 // Apparition des photos au scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {

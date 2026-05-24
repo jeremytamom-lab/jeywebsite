@@ -105,10 +105,19 @@ main {
   transform: translateY(0);
 }
 
-.photo-item img {
+.photo-item img,
+.about-portrait {
   width: 100%;
   height: auto;
   display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-touch-callout: none;
 }
 
 .caption {
