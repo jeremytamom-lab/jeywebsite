@@ -37,6 +37,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   background: transparent;
+  mix-blend-mode: difference;
 }
 
 .nav-left   { justify-self: start; }
@@ -142,13 +143,72 @@ main {
   letter-spacing: -0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--black);
-  transition: color 0.2s;
+  color: var(--white);
+  transition: opacity 0.2s;
 }
 
 .nav-link:hover,
 .nav-link.active {
+  opacity: 0.6;
+}
+
+/* ─── CONTACT MINIMAL ─────────────────────────── */
+.contact-minimal {
+  flex: 1;
+  margin-top: var(--header-h);
+  padding: 140px 58px 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.contact-intro {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--black);
+  max-width: 12ch;
+}
+
+.contact-mail {
+  font-size: clamp(40px, 7vw, 96px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: lowercase;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+  word-break: break-word;
+}
+
+.contact-mail:hover {
+  opacity: 0.5;
+}
+
+.contact-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
   color: var(--gray);
+  margin-top: 40px;
+}
+
+.contact-meta a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-meta a:hover {
+  color: var(--black);
 }
 
 /* ─── EDITORIAL PAGE (About / Contact) ───────── */
@@ -219,6 +279,16 @@ main {
   line-height: 1.2;
 }
 
+.editorial-list li a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.editorial-list li a:hover {
+  color: var(--gray);
+}
+
 .about-portrait {
   width: 100%;
   height: auto;
@@ -244,64 +314,77 @@ main {
 }
 
 .editorial-form {
+  margin-top: 140px;
   display: flex;
   flex-direction: column;
   gap: 0;
+  max-width: 720px;
+}
+
+.editorial-form-title {
+  margin-bottom: 40px;
+}
+
+.editorial-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
 }
 
 .editorial-form input,
 .editorial-form textarea {
   width: 100%;
   border: none;
-  border-bottom: 1px solid #ddd;
-  padding: 14px 0;
-  font-size: 13px;
+  border-bottom: 1px solid var(--black);
+  padding: 16px 0;
+  font-size: 15px;
   font-family: inherit;
-  font-weight: 300;
+  font-weight: 500;
   background: transparent;
   color: var(--black);
   outline: none;
   transition: border-color 0.2s;
-  letter-spacing: 0.02em;
-  margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
 
 .editorial-form input::placeholder,
 .editorial-form textarea::placeholder {
-  color: #bbb;
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
 .editorial-form input:focus,
 .editorial-form textarea:focus {
-  border-color: var(--black);
+  border-color: var(--gray);
 }
 
 .editorial-form textarea {
   resize: none;
-  height: 100px;
+  height: 140px;
+  margin-top: 24px;
 }
 
 .editorial-form button {
-  margin-top: 28px;
+  margin-top: 40px;
   align-self: flex-start;
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: 14px;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   font-family: inherit;
-  font-weight: 500;
-  color: var(--white);
-  background: var(--black);
+  font-weight: 700;
+  color: var(--black);
+  background: transparent;
   border: none;
-  padding: 12px 28px;
+  padding: 0;
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
 .editorial-form button:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 /* ─── INFO PAGE ───────────────────────────────── */
@@ -651,5 +734,19 @@ footer p {
 
   .contact-page {
     padding: 48px 24px;
+  }
+
+  .contact-minimal {
+    padding: 80px 24px;
+    gap: 56px;
+  }
+
+  .editorial-form {
+    margin-top: 80px;
+  }
+
+  .editorial-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }

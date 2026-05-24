@@ -22,27 +22,37 @@
 
       <div class="editorial-col editorial-col--bio">
         <p class="editorial-body">
-          Got a project in mind? Let's talk. I'm open to commissions, collaborations, and long-term partnerships.
-
-
+          Got a project in mind? Let's talk. Open to commissions, collaborations, and long-term partnerships.
         </p>
-        <div class="editorial-links">
-          <a href="mailto:jeremytamom@gmail.com">jeremytamom@gmail.com</a>
-          <a href="https://www.instagram.com/j3eyyy/" target="_blank">@j3eyyy</a>
-        </div>
+        <p class="editorial-location">Available for commissions</p>
       </div>
 
       <div class="editorial-col">
-        <h2 class="editorial-section-title">Send a message</h2>
-        <form class="editorial-form" onsubmit="handleSubmit(event)">
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <textarea name="message" placeholder="Message" required></textarea>
-          <button type="submit">Send</button>
-        </form>
+        <h2 class="editorial-section-title">Email</h2>
+        <ul class="editorial-list">
+          <li><a href="mailto:jeremytamom@gmail.com">jeremytamom@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="editorial-col">
+        <h2 class="editorial-section-title">Social</h2>
+        <ul class="editorial-list">
+          <li><a href="https://www.instagram.com/j3eyyy/" target="_blank">Instagram</a></li>
+        </ul>
       </div>
 
     </div>
+
+    <form class="editorial-form" onsubmit="handleSubmit(event)">
+      <h2 class="editorial-section-title editorial-form-title">Send a message</h2>
+      <div class="editorial-form-row">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
   </div>
 
   <footer id="site-footer"></footer>
