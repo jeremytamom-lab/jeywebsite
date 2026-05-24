@@ -45,6 +45,27 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.photo-item').forEach(el => observer.observe(el));
 
+// Hero scroll-driven shrink (height-based)
+const hero = document.querySelector('.hero');
+const heroPhoto = document.querySelector('.hero-photo');
+if (hero && heroPhoto) {
+  const isMobile = () => window.innerWidth <= 768;
+  const startH = () => isMobile() ? 65 : 85;
+  const endH   = () => isMobile() ? 30 : 40;
+
+  function updateHero() {
+    const h = hero.offsetHeight - window.innerHeight;
+    const p = Math.min(Math.max(window.scrollY / h, 0), 1);
+    const v = startH() - (startH() - endH()) * p;
+    heroPhoto.style.setProperty('--hero-h', `${v}vh`);
+    const bg = Math.round(17 + (255 - 17) * p);
+    hero.style.backgroundColor = `rgb(${bg}, ${bg}, ${bg})`;
+  }
+  window.addEventListener('scroll', updateHero, { passive: true });
+  window.addEventListener('resize', updateHero);
+  updateHero();
+}
+
 const FORMSPREE_ID = 'mredlagk'; // Remplace par ton ID Formspree
 
 async function handleSubmit(e) {
