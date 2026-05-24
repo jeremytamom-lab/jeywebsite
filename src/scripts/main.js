@@ -17,10 +17,11 @@ document.getElementById('site-header').innerHTML = `
 `;
 
 document.getElementById('site-footer').innerHTML = `
-  <p>© JEREMY TAMOM, ALL RIGHTS RESERVED, 2026</p>
-  <div class="footer-links">
-    <a href="mailto:jeremytamom@gmail.com">EMAIL</a>
-    <a href="https://www.instagram.com/j3eyyy/" target="_blank">INSTAGRAM</a>
+  <span class="footer-text footer-left">© Jeremy Tamom</span>
+  <span class="footer-text footer-center">2026</span>
+  <div class="footer-links footer-right">
+    <a href="mailto:jeremytamom@gmail.com" class="footer-link">EMAIL</a>
+    <a href="https://www.instagram.com/j3eyyy/" target="_blank" class="footer-link">INSTAGRAM</a>
   </div>
 `;
 

@@ -44,10 +44,9 @@
     </div>
 
     <form class="editorial-form" onsubmit="handleSubmit(event)">
-      <h2 class="editorial-section-title editorial-form-title">Send a message</h2>
       <div class="editorial-form-row">
         <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
+        <input type="email" name="email" placeholder="Email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address (e.g. name@example.com)" />
       </div>
       <textarea name="message" placeholder="Message" required></textarea>
       <button type="submit">Send</button>
