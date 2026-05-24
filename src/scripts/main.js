@@ -11,9 +11,9 @@ document.head.appendChild(lenisScript);
 const page = window.location.pathname.split('/').pop() || 'index.html';
 
 document.getElementById('site-header').innerHTML = `
-  <a href="index.html" class="nav-link nav-left ${page === 'index.html' || page === '' ? 'active' : ''}">WORKS</a>
-  <a href="about.html" class="nav-link nav-center ${page === 'about.html' ? 'active' : ''}">ABOUT</a>
-  <a href="contact.html" class="nav-link nav-right ${page === 'contact.html' ? 'active' : ''}">CONTACT</a>
+  <a href="/" class="nav-link nav-left ${page === 'index.html' || page === '' || page === 'index' ? 'active' : ''}">WORKS</a>
+  <a href="/about" class="nav-link nav-center ${page === 'about.html' || page === 'about' ? 'active' : ''}">ABOUT</a>
+  <a href="/contact" class="nav-link nav-right ${page === 'contact.html' || page === 'contact' ? 'active' : ''}">CONTACT</a>
 `;
 
 document.getElementById('site-footer').innerHTML = `
