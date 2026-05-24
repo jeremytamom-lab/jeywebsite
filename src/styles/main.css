@@ -847,6 +847,14 @@ footer {
     justify-content: center !important;
   }
 
+  /* Solo photo centered on mobile */
+  .series-row:has(.photo-item:only-child) {
+    justify-content: center !important;
+  }
+  .photo-item:only-child {
+    scroll-snap-align: center;
+  }
+
   /* ── Carousel horizontal sur mobile ── */
   .series-row {
     flex-wrap: nowrap;
