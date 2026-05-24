@@ -108,10 +108,14 @@ const lightbox = document.getElementById('video-lightbox');
 const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxClose = document.querySelector('.lightbox-close');
 
-function openLightbox(src) {
+function openLightbox(src, currentTime = 0, muted = true) {
   lightboxVideo.src = src;
   lightbox.classList.add('open');
-  lightboxVideo.play();
+  lightboxVideo.muted = muted;
+  lightboxVideo.addEventListener('loadedmetadata', () => {
+    lightboxVideo.currentTime = currentTime;
+    lightboxVideo.play();
+  }, { once: true });
   document.body.style.overflow = 'hidden';
 }
 function closeLightbox() {
@@ -125,8 +129,9 @@ function closeLightbox() {
 document.querySelectorAll('.video-wrap').forEach(wrap => {
   wrap.addEventListener('click', (e) => {
     if (e.target.closest('.sound-btn')) return;
+    const video = wrap.querySelector('video');
     const src = wrap.querySelector('source').getAttribute('src');
-    openLightbox(src);
+    openLightbox(src, video.currentTime, video.muted);
   });
 });
 
