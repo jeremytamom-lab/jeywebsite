@@ -115,7 +115,6 @@ header {
   height: 280vh;
   position: relative;
   background: #111;
-  transition: background-color 0.5s ease;
 }
 
 .hero-inner {
@@ -125,6 +124,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
 }
 
 .hero-photo {
@@ -149,7 +149,7 @@ header {
 
 @media (max-width: 768px) {
   .hero {
-    height: 230vh;
+    height: 190vh;
   }
   .hero-photo img {
     width: 90vw;
