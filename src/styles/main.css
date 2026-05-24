@@ -32,10 +32,10 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px 40px 0;
+  padding: 0 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: start;
+  align-items: center;
   background: transparent;
 }
 
@@ -555,8 +555,20 @@ footer p {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-h: 64px;
+  }
+
   header {
-    padding: 0 24px;
+    padding: 0 20px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+  }
+
+  .nav-links {
+    gap: 24px;
   }
 
   .gallery {
@@ -576,6 +588,7 @@ footer p {
     gap: 12px;
     padding: 0 24px;
     margin-bottom: 12px;
+    justify-content: flex-start !important;
     /* Cache la scrollbar */
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -600,6 +613,29 @@ footer p {
     padding: 24px;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* ── Editorial pages (About / Contact) ── */
+  .editorial-page {
+    padding: 80px 24px 80px;
+  }
+
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .editorial-col--bio {
+    padding-right: 0;
+  }
+
+  .editorial-col--photo {
+    max-width: 70%;
+  }
+
+  .editorial-body {
+    max-width: 100%;
+    font-size: 16px;
   }
 
   .contact-page {
