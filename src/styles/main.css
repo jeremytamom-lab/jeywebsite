@@ -309,7 +309,7 @@ main {
   font-size: 10px;
   font-weight: 300;
   font-style: italic;
-  letter-spacing: 0.06em;
+  letter-spacing: -0.02em;
   color: var(--gray);
 }
 
@@ -996,9 +996,11 @@ footer {
   }
 
   .footer-left,
-  .footer-center,
-  .footer-right {
+  .footer-center {
     justify-self: start;
+  }
+  .footer-right {
+    justify-self: end;
   }
 
   .footer-text,
