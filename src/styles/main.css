@@ -195,6 +195,45 @@ main {
   transform: translateY(0);
 }
 
+.video-wrap {
+  position: relative;
+  width: 100%;
+}
+.sound-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  transition: background 0.25s ease, border-color 0.25s ease;
+  z-index: 5;
+  opacity: 0;
+}
+.photo-item:hover .sound-btn,
+.sound-btn.active {
+  opacity: 1;
+}
+.sound-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.sound-btn .icon-sound { display: none; }
+.sound-btn.active .icon-muted { display: none; }
+.sound-btn.active .icon-sound { display: block; }
+@media (max-width: 768px) {
+  .sound-btn { opacity: 1; }
+}
+
 .photo-item img,
 .photo-item video,
 .about-portrait {

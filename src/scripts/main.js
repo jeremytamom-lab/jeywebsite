@@ -83,6 +83,26 @@ if (hero && heroPhoto) {
   updateHero();
 }
 
+// Sound toggle for videos
+document.querySelectorAll('.sound-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const video = btn.parentElement.querySelector('video');
+    if (video.muted) {
+      document.querySelectorAll('video').forEach(v => {
+        v.muted = true;
+        const otherBtn = v.parentElement.querySelector('.sound-btn');
+        if (otherBtn) otherBtn.classList.remove('active');
+      });
+      video.muted = false;
+      btn.classList.add('active');
+    } else {
+      video.muted = true;
+      btn.classList.remove('active');
+    }
+  });
+});
+
 const FORMSPREE_ID = 'mredlagk'; // Remplace par ton ID Formspree
 
 async function handleSubmit(e) {
