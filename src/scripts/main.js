@@ -27,10 +27,10 @@ document.getElementById('site-footer').innerHTML = `
 
 // Protection images : clic droit + drag bloqués
 document.addEventListener('contextmenu', e => {
-  if (e.target.tagName === 'IMG') e.preventDefault();
+  if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') e.preventDefault();
 });
 document.addEventListener('dragstart', e => {
-  if (e.target.tagName === 'IMG') e.preventDefault();
+  if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') e.preventDefault();
 });
 
 // Apparition des photos au scroll
@@ -101,6 +101,41 @@ document.querySelectorAll('.sound-btn').forEach(btn => {
       btn.classList.remove('active');
     }
   });
+});
+
+// Video lightbox
+const lightbox = document.getElementById('video-lightbox');
+const lightboxVideo = document.getElementById('lightbox-video');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+function openLightbox(src) {
+  lightboxVideo.src = src;
+  lightbox.classList.add('open');
+  lightboxVideo.play();
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxVideo.pause();
+  lightboxVideo.removeAttribute('src');
+  lightboxVideo.load();
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.video-wrap').forEach(wrap => {
+  wrap.addEventListener('click', (e) => {
+    if (e.target.closest('.sound-btn')) return;
+    const src = wrap.querySelector('source').getAttribute('src');
+    openLightbox(src);
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
 });
 
 const FORMSPREE_ID = 'mredlagk'; // Remplace par ton ID Formspree

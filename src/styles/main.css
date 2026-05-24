@@ -132,7 +132,6 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-photo img {
@@ -198,6 +197,61 @@ main {
 .video-wrap {
   position: relative;
   width: 100%;
+  cursor: zoom-in;
+}
+
+/* Video lightbox */
+#video-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+#video-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+#video-lightbox video {
+  max-width: 85vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  display: block;
+  transform: scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#video-lightbox.open video {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.2s;
+  z-index: 1001;
+}
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 .sound-btn {
   position: absolute;
@@ -743,7 +797,7 @@ main {
 
 /* ─── FOOTER ──────────────────────────────────── */
 footer {
-  padding: 24px 40px;
+  padding: 12px 40px 36px;
   display: grid;
   grid-template-columns: 1fr 0.6fr 1.4fr;
   align-items: center;
@@ -810,6 +864,7 @@ footer {
   :root {
     --header-h: 64px;
   }
+
 
   header {
     padding: 0 20px;
