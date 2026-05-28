@@ -48,12 +48,24 @@ document.querySelectorAll('.photo-item').forEach(el => observer.observe(el));
 // Hero scroll-driven shrink (height-based)
 const hero = document.querySelector('.hero');
 const heroPhoto = document.querySelector('.hero-photo');
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  scrollIndicator.addEventListener('click', () => {
+    const firstSeries = document.querySelector('.gallery .series');
+    if (firstSeries) {
+      const top = firstSeries.getBoundingClientRect().top + window.scrollY - 40;
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    }
+  });
+}
 if (hero && heroPhoto) {
   const isMobile = () => window.innerWidth <= 768;
   let startH = isMobile() ? 50 : 65;
   let endH   = isMobile() ? 25 : 35;
   let range  = hero.offsetHeight - window.innerHeight;
-  let lastV = -1, lastBg = -1, rafId = 0;
+  let lastV = -1, lastBg = -1, lastInd = -1, rafId = 0;
 
   function updateHero() {
     rafId = 0;
@@ -67,6 +79,13 @@ if (hero && heroPhoto) {
     if (bg !== lastBg) {
       hero.style.backgroundColor = `rgb(${bg},${bg},${bg})`;
       lastBg = bg;
+    }
+    if (scrollIndicator) {
+      const ind = Math.round(Math.max(0, 0.7 - p * 4) * 100) / 100;
+      if (ind !== lastInd) {
+        scrollIndicator.style.opacity = ind;
+        lastInd = ind;
+      }
     }
   }
   function onScroll() {
